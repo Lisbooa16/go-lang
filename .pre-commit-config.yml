@@ -1,21 +1,23 @@
 repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.3.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
   - repo: https://github.com/dnephin/pre-commit-golang
-    rev: v0.0.5
+    rev: v0.5.0
     hooks:
-      - id: go-fmt  # Formata o código com `go fmt`.
-      - id: go-vet  # Realiza verificações estáticas no código com `go vet`.
-      - id: golint  # Aplica o lint no código.
-
-  - repo: local
+      - id: go-fmt
+      - id: go-imports
+      - id: no-go-testing
+      - id: golangci-lint
+      - id: go-unit-tests
+      # - id: validate-toml
+  - repo: https://github.com/alessandrojcm/commitlint-pre-commit-hook
+    rev: v8.0.0
     hooks:
-      - id: go-mod-tidy
-        name: Ensure go.mod is tidy
-        entry: go mod tidy
-        language: system
-        types: [go]
-
-      - id: go-test
-        name: Run Go tests
-        entry: go test ./...
-        language: system
-        types: [go]
+      - id: commitlint
+        stages: [commit-msg]
+        additional_dependencies: ['@commitlint/config-conventional']
