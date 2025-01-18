@@ -19,14 +19,18 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v4
         with:
-          go-version: 1.20 # Substitua pela versão do Go usada no projeto
+          go-version: 1.20  # Substitua pela versão do Go usada no projeto
 
       - name: Install pre-commit
         run: |
-          sudo apt-get update && sudo apt-get install -y golang
+          sudo apt-get update
+          sudo apt-get install -y python3-pip  # Instalar o pip para poder instalar pre-commit
+          pip3 install pre-commit
+
+      - name: Install pre-commit hooks
+        run: |
           pre-commit install
           pre-commit install-hooks
 
       - name: Run pre-commit hooks
-        run: |
-          pre-commit run --all-files
+        run: pre-commit run --all-files
