@@ -1,0 +1,21 @@
+repos:
+  - repo: https://github.com/dnephin/pre-commit-golang
+    rev: v0.0.5
+    hooks:
+      - id: go-fmt  # Formata o código com `go fmt`.
+      - id: go-vet  # Realiza verificações estáticas no código com `go vet`.
+      - id: golint  # Aplica o lint no código.
+
+  - repo: local
+    hooks:
+      - id: go-mod-tidy
+        name: Ensure go.mod is tidy
+        entry: go mod tidy
+        language: system
+        types: [go]
+
+      - id: go-test
+        name: Run Go tests
+        entry: go test ./...
+        language: system
+        types: [go]
