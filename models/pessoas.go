@@ -15,12 +15,12 @@ type Pessoa struct {
 }
 
 func (p Pessoa) GetFullName() {
-	fmt.Printf("%s %s", p.Nome, p.Sobrenome)
+	fmt.Printf("%s %s.", p.Nome, p.Sobrenome)
 }
 
 func (p Pessoa) GetFirstName() {
-	fmt.Printf("%s", p.Nome)
+	fmt.Printf("%s.", p.Nome)
 }
 func (p Pessoa) GetLastName() {
-	fmt.Printf("%s", p.Sobrenome)
+	fmt.Printf("%s.", p.Sobrenome)
 }
