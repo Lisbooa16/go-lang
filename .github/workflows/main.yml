@@ -19,7 +19,7 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v4
         with:
-          go-version: 1.20 # Substitua pela versão do Go usada no projeto
+          go-version: 1.23.5 # Substitua pela versão do Go usada no projeto
 
       - name: Install pre-commit
         run: |
